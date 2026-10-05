@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Imunisasi Puskesmas Bulusan</title>
+    <meta name="description"
+        content="Edukasi imunisasi untuk membantu Ayah dan Bunda memahami pentingnya perlindungan kesehatan anak dari Puskesmas Bulusan Semarang.">
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <span class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </span>
+                <div class="logo-text-wrap">
+                    <span class="logo-title">Imunisasi</span>
+                    <span class="logo-subtitle">Puskesmas Bulusan</span>
+                </div>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="#beranda" class="nav-link active">Beranda</a></li>
+                    <li><a href="#tentang" class="nav-link">Pengenalan</a></li>
+                    <li><a href="#mitos-fakta" class="nav-link">Mitos/Fakta</a></li>
+                    <li><a href="#program-kejar" class="nav-link">Program Kejar</a></li>
+                    <li><a href="#edukasi" class="nav-link">Edukasi</a></li>
+                    <li><a href="#waktu-info" class="nav-link">Waktu & Info</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="beranda" class="hero">
+            <div class="container hero-container">
+                <div class="hero-content reveal">
+                    <span class="badge">Edukasi Kesehatan Anak</span>
+                    <h1>Lindungi Buah Hati,<br>Lengkapi Imunisasinya</h1>
+                    <p>Kenali manfaat imunisasi, pahami jadwalnya, dan dapatkan informasi yang tepat untuk membantu
+                        menjaga kesehatan anak.</p>
+                    <div class="hero-actions">
+                        <a href="#tentang" class="btn btn-primary">Mulai Belajar</a>
+                        <a href="#jadwal" class="btn btn-secondary">Lihat Jadwal Imunisasi</a>
+                    </div>
+                </div>
+                <div class="hero-visual reveal">
+                    <div class="hero-image-wrapper">
+                        <img src="assets/images/hero-keluarga.jpg" alt="Keluarga Sehat" class="hero-image">
+                        <div class="floating-bubble bubble-1">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg>
+                        </div>
+                        <div class="floating-bubble bubble-2">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 8v4" />
+                                <path d="M12 16h.01" />
+                            </svg>
+                        </div>
+                        <div class="visual-backdrop"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-wave">
+                <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                    <path fill="#F4FAFB"
+                        d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z">
+                    </path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- INTRODUCTION -->
+        <section class="introduction bg-light" id="intro">
+            <div class="container intro-container reveal">
+                <div class="intro-card">
+                    <div class="intro-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
+                        </svg>
+                    </div>
+                    <div class="intro-text">
+                        <h2>Hallo, Ayah dan Bunda 👋</h2>
+                        <p>Selamat datang di edukasi imunisasi. Informasi ini disusun untuk membantu Ayah dan Bunda
+                            memahami pentingnya imunisasi agar anak tumbuh sehat dan terlindungi dari berbagai penyakit
+                            berbahaya.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APA ITU IMUNISASI -->
+        <section id="tentang" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Apa Itu Imunisasi?</h2>
+                    <p class="subtitle">Imunisasi adalah cara melindungi tubuh anak dari penyakit tertentu dengan
+                        memberikan vaksin sehingga tubuh mampu membentuk kekebalan.</p>
+                </div>
+
+                <div class="highlight-card reveal">
+                    <div class="highlight-content">
+                        <h3>Tahukah Bunda?</h3>
+                        <p>Imunisasi telah menyelamatkan jutaan anak dari penyakit yang dapat dicegah setiap tahunnya.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card reveal">
+                        <div class="b-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </div>
+                        <h4>Melindungi dari penyakit</h4>
+                    </div>
+                    <div class="benefit-card reveal" style="transition-delay: 0.1s;">
+                        <div class="b-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                            </svg>
+                        </div>
+                        <h4>Mengurangi risiko komplikasi</h4>
+                    </div>
+                    <div class="benefit-card reveal" style="transition-delay: 0.2s;">
+                        <div class="b-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <h4>Melindungi keluarga</h4>
+                    </div>
+                    <div class="benefit-card reveal" style="transition-delay: 0.3s;">
+                        <div class="b-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                                <line x1="9" y1="9" x2="9.01" y2="9" />
+                                <line x1="15" y1="9" x2="15.01" y2="9" />
+                            </svg>
+                        </div>
+                        <h4>Anak dapat tumbuh sehat</h4>
+                    </div>
+                    <div class="benefit-card reveal" style="transition-delay: 0.4s;">
+                        <div class="b-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                            </svg>
+                        </div>
+                        <h4>Membantu mencegah penyebaran penyakit</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENGAPA ANAK HARUS IMUNISASI -->
+        <section class="section bg-light flow-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Mengapa Anak Harus Imunisasi?</h2>
+                    <p class="subtitle">Memahami perjalanan perlindungan melalui imunisasi.</p>
+                </div>
+
+                <div class="flow-container reveal">
+                    <div class="flow-step">
+                        <div class="flow-circle">🦠</div>
+                        <h4>Penyakit</h4>
+                        <p>Kuman penyebab penyakit menyebar di lingkungan.</p>
+                    </div>
+                    <div class="flow-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg></div>
+                    <div class="flow-step">
+                        <div class="flow-circle">⚠️</div>
+                        <h4>Risiko</h4>
+                        <p>Anak rentan tertular jika tubuh belum mengenali kuman.</p>
+                    </div>
+                    <div class="flow-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg></div>
+                    <div class="flow-step">
+                        <div class="flow-circle">🛡️</div>
+                        <h4>Perlindungan</h4>
+                        <p>Vaksin melatih tubuh membentuk pertahanan (antibodi).</p>
+                    </div>
+                    <div class="flow-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg></div>
+                    <div class="flow-step">
+                        <div class="flow-circle">👶</div>
+                        <h4>Anak lebih terlindungi</h4>
+                        <p>Tubuh siap melawan penyakit jika kelak terpapar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MITOS ATAU FAKTA -->
+        <section id="mitos-fakta" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Mitos atau Fakta? 🤔</h2>
+                    <p class="subtitle">Yuk, luruskan informasi tentang imunisasi.</p>
+                </div>
+
+                <div class="myths-grid" id="mythsContainer">
+                    <!-- Generated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- IMUNISASI KEJAR -->
+        <section id="program-kejar" class="section bg-light">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Ada Program Imunisasi Kejar</h2>
+                    <p class="subtitle">Lindungi anak, lengkapi imunisasinya sesuai usia sekarang!</p>
+                </div>
+
+                <div class="kejar-grid">
+                    <div class="kejar-info reveal">
+                        <div class="info-box">
+                            <h3>Apa itu Imunisasi Kejar?</h3>
+                            <p>Imunisasi kejar adalah pemberian vaksin lanjutan kepada anak yang terlambat atau belum
+                                lengkap imunisasinya sesuai jadwal usianya, agar anak tetap mendapatkan perlindungan
+                                yang optimal dari penyakit berbahaya.</p>
+                        </div>
+                        <div class="info-box">
+                            <h3>Siapa yang Memerlukan?</h3>
+                            <ul class="check-list">
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg> Anak yang terlambat datang sesuai jadwal.</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg> Anak yang belum menerima satu/lebih jenis vaksin.</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg> Anak yang riwayat imunisasinya belum lengkap.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="kejar-why reveal" style="transition-delay: 0.2s;">
+                        <h3>Mengapa Imunisasi Kejar Penting?</h3>
+                        <ul class="why-list">
+                            <li>
+                                <div class="w-icon">🛡️</div>
+                                <span>Melindungi anak dari penyakit berbahaya.</span>
+                            </li>
+                            <li>
+                                <div class="w-icon">🦠</div>
+                                <span>Mencegah Kejadian Luar Biasa (KLB) penyakit menular.</span>
+                            </li>
+                            <li>
+                                <div class="w-icon">👥</div>
+                                <span>Menjaga kekebalan kelompok di masyarakat.</span>
+                            </li>
+                            <li>
+                                <div class="w-icon">👶</div>
+                                <span>Anak tetap bisa tumbuh sehat dan aktif.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-section reveal">
+                    <h3 class="text-center" style="margin-bottom: 2rem;">Bagaimana Proses Imunisasi Kejar?</h3>
+                    <div class="timeline-kejar">
+                        <div class="tk-item">
+                            <div class="tk-num">1</div>
+                            <div class="tk-content">
+                                <h4>Cek Riwayat Imunisasi</h4>
+                                <p>Petugas kesehatan akan mengecek riwayat imunisasi anak.</p>
+                            </div>
+                        </div>
+                        <div class="tk-item">
+                            <div class="tk-num">2</div>
+                            <div class="tk-content">
+                                <h4>Tentukan Kebutuhan Vaksin</h4>
+                                <p>Jenis dan jumlah dosis vaksin disesuaikan dengan usia dan riwayat.</p>
+                            </div>
+                        </div>
+                        <div class="tk-item">
+                            <div class="tk-num">3</div>
+                            <div class="tk-content">
+                                <h4>Berikan Sesuai Rekomendasi</h4>
+                                <p>Vaksin diberikan sesuai kebutuhan untuk melengkapi perlindungan.</p>
+                            </div>
+                        </div>
+                        <div class="tk-item">
+                            <div class="tk-num">4</div>
+                            <div class="tk-content">
+                                <h4>Lengkapi Hingga Tuntas</h4>
+                                <p>Pastikan anak mendapatkan semua dosis hingga imunisasi lengkap.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kejar-footer reveal text-center" style="margin-top: 4rem;">
+                    <div class="reminder-box"
+                        style="background: rgba(249, 199, 79, 0.15); padding: 1.5rem; border-radius: 12px; display: inline-block; text-align: left; margin-bottom: 1.5rem;">
+                        <h4 style="color: #b38300; margin-bottom: 0.5rem;">Hal yang Perlu Diingat!</h4>
+                        <p>✓ Imunisasi kejar tetap aman dan efektif.</p>
+                        <p>✓ Tidak perlu mengulang dari awal.</p>
+                        <p>✓ Semakin cepat dilengkapi, semakin cepat anak terlindungi.</p>
+                    </div>
+                    <p style="color:var(--primary); font-weight:600; max-width: 600px; margin: 0 auto;">Segera datang ke
+                        Posyandu, Puskesmas, atau fasilitas kesehatan terdekat untuk mendapatkan informasi dan layanan
+                        imunisasi kejar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUKASI & SETELAH IMUNISASI -->
+        <section id="edukasi" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Setelah Imunisasi,<br>Apa yang Harus Dilakukan?</h2>
+                </div>
+
+                <div class="after-grid">
+                    <div class="checklist-card reveal">
+                        <ul class="after-checklist">
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Tetap berikan ASI
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Kompres hangat bila demam
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Banyak minum
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Berikan obat sesuai anjuran tenaga kesehatan
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-card reveal">
+                        <div class="alert-header">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="12" />
+                                <line x1="12" y1="16" x2="12.01" y2="16" />
+                            </svg>
+                            <h3>Kapan Harus ke Fasilitas Kesehatan Terdekat?</h3>
+                        </div>
+                        <ul class="alert-list">
+                            <li>Demam tinggi</li>
+                            <li>Sesak napas</li>
+                            <li>Kejang</li>
+                            <li>Anak tidak sadar</li>
+                            <li>Reaksi alergi berat</li>
+                        </ul>
+                        <p class="alert-cta">Jika ragu, konsultasikan dengan tenaga kesehatan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PERAN ORANG TUA -->
+        <section id="peran-orangtua" class="section bg-light">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Peran Ayah dan Bunda 🤍</h2>
+                    <p class="subtitle">Langkah sederhana yang sangat berarti untuk masa depan anak.</p>
+                </div>
+
+                <div class="parent-checklist reveal" id="parentChecklist">
+                    <!-- Generated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- JADWAL IMUNISASI -->
+        <section id="waktu-info" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Kapan Waktu Imunisasi? 📅</h2>
+                    <p class="subtitle">Jadwal imunisasi dasar dan lanjutan berdasarkan rekomendasi IDAI.</p>
+                </div>
+
+                <div class="schedule-widget reveal">
+                    <div class="schedule-selector" id="scheduleSelector">
+                        <!-- Generated by JS -->
+                    </div>
+                    <div class="schedule-content" id="scheduleContent">
+                        <!-- Generated by JS -->
+                    </div>
+                </div>
+
+                <p class="disclaimer reveal">* Jadwal imunisasi dapat disesuaikan berdasarkan kondisi anak dan
+                    rekomendasi tenaga kesehatan.</p>
+            </div>
+        </section>
+
+        <!-- 5 PESAN PENTING -->
+        <section class="section bg-accent">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Ingat 5 Pesan Penting!</h2>
+                </div>
+
+                <div class="messages-grid reveal">
+                    <div class="msg-card">
+                        <div class="msg-num">01</div>
+                        <h4>Imunisasi aman.</h4>
+                    </div>
+                    <div class="msg-card">
+                        <div class="msg-num">02</div>
+                        <h4>Imunisasi melindungi anak.</h4>
+                    </div>
+                    <div class="msg-card">
+                        <div class="msg-num">03</div>
+                        <h4>Lengkapi sesuai jadwal.</h4>
+                    </div>
+                    <div class="msg-card">
+                        <div class="msg-num">04</div>
+                        <h4>Demam ringan adalah hal yang normal.</h4>
+                    </div>
+                    <div class="msg-card">
+                        <div class="msg-num">05</div>
+                        <h4>Bila terlambat, lakukan imunisasi kejar.</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- SUMBER TEPERCAYA -->
+        <section id="sumber" class="section bg-light">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Cari Informasi dari Sumber Tepercaya</h2>
+                </div>
+
+                <div class="sources-grid reveal">
+                    <div class="source-card">Kementerian Kesehatan RI</div>
+                    <div class="source-card">Ikatan Dokter Anak Indonesia (IDAI)</div>
+                    <div class="source-card">Buku KIA Digital</div>
+                    <div class="source-card">World Health Organization (WHO)</div>
+                    <div class="source-card">UNICEF</div>
+                </div>
+
+                <div class="tips-box reveal">
+                    <h3>Bagaimana Memilih Informasi Kesehatan?</h3>
+                    <ul class="tips-list">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Pastikan informasi berasal dari sumber resmi</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Periksa tanggal informasi</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Jangan langsung percaya informasi dari media sosial</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Tanyakan kepada tenaga kesehatan jika ragu</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Hindari informasi yang tidak memiliki sumber jelas</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Bandingkan informasi sebelum mempercayainya</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="section final-cta text-center">
+            <div class="container reveal">
+                <h2>Anak Terlindungi,<br>Orang Tua Lebih Tenang</h2>
+                <p>Lengkapi imunisasi anak dan dapatkan informasi dari sumber yang terpercaya.</p>
+                <div class="cta-actions">
+                    <a href="#tentang" class="btn btn-primary btn-lg">Pelajari Imunisasi</a>
+                    <button id="backToTop" class="btn btn-secondary btn-lg">Kembali ke Atas</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo"
+                        style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <img src="assets/icons/favicon.svg" alt="Logo" width="48" height="48"
+                            style="border-radius: 12px;">
+                        <div class="footer-logo-text" style="display: flex; flex-direction: column;">
+                            <span class="logo-title"
+                                style="color: white; font-weight: 700; font-size: 1.25rem; font-family: var(--font-heading);">Imunisasi</span>
+                            <span class="logo-subtitle"
+                                style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">Puskesmas Bulusan</span>
+                        </div>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Edukasi imunisasi untuk membantu Ayah dan
+                        Bunda memahami pentingnya perlindungan kesehatan anak agar tumbuh kembangnya optimal dan
+                        terhindar dari penyakit berbahaya.</p>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Hubungi Kami</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            <span>Jl. Mulawarman Raya No.14, Bulusan, Kec. Tembalang, Kota Semarang, Jawa Tengah
+                                50277</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            <span>(024) 76482181</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            <span>puskesmasbulusan@semarangkota.go.id</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#tentang">Pengenalan</a></li>
+                        <li><a href="#mitos-fakta">Mitos/Fakta</a></li>
+                        <li><a href="#program-kejar">Program Kejar</a></li>
+                        <li><a href="#edukasi">Edukasi</a></li>
+                        <li><a href="#waktu-info">Waktu & Info</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Imunisasi Puskesmas Bulusan Semarang. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

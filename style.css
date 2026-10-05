@@ -1379,8 +1379,14 @@ svg {
     }
 
     .hero-visual {
-        order: -1;
-        margin-bottom: 2rem;
+        order: 1;
+        margin-top: 2rem;
+    }
+
+    .hero-image-wrapper {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
     }
 
     .intro-card {
@@ -1454,9 +1460,6 @@ svg {
         height: 250px;
     }
 
-    .btn {
-        width: 100%;
-    }
 
     .tk-item {
         flex-direction: column;

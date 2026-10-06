@@ -893,6 +893,48 @@ svg {
     flex-shrink: 0;
 }
 
+.kejar-table-wrapper {
+    overflow-x: auto;
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-sm);
+}
+
+.kejar-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.kejar-table th, .kejar-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.kejar-table th {
+    background: var(--primary);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.kejar-table tr:nth-child(even) {
+    background: rgba(82, 182, 154, 0.05);
+}
+
+.kejar-table tr:hover {
+    background: rgba(82, 182, 154, 0.1);
+}
+
+.badge-vaccine {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    background: rgba(30, 96, 145, 0.1);
+    color: var(--primary);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
 /* JADWAL IMUNISASI */
 .schedule-widget {
     background: var(--white);

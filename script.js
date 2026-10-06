@@ -145,66 +145,108 @@ document.addEventListener('DOMContentLoaded', () => {
     // 6. Jadwal Imunisasi (IDAI 2024 Reference)
     const scheduleData = [
         {
-            ageId: "usia-0-bulan",
-            ageLabel: "0 Bulan",
+            ageId: "kurang-24-jam",
+            ageLabel: "< 24 Jam",
             vaccines: [
-                { name: "Hepatitis B (HB-0)", desc: "Mencegah penularan Hepatitis B dari ibu ke bayi. Diberikan < 24 jam setelah lahir." },
-                { name: "Polio 0 (Tetes)", desc: "Mencegah lumpuh layu (Polio). Diberikan sebelum pulang dari faskes." }
+                { name: "Hepatitis B (HB0)", desc: "Diberikan segera setelah lahir sebelum 24 jam." }
             ]
         },
         {
-            ageId: "usia-1-bulan",
-            ageLabel: "1 Bulan",
+            ageId: "kurang-1-bulan",
+            ageLabel: "< 1 Bulan",
             vaccines: [
-                { name: "BCG", desc: "Mencegah penyakit Tuberkulosis (TBC) berat." },
-                { name: "Polio 1 (Tetes)", desc: "Dosis pertama untuk kekebalan terhadap Polio." }
+                { name: "BCG", desc: "Mencegah penyakit Tuberkulosis (TBC)." },
+                { name: "OPV1", desc: "Vaksin Polio Tetes (Oral Polio Vaccine) dosis pertama." }
             ]
         },
         {
             ageId: "usia-2-bulan",
             ageLabel: "2 Bulan",
             vaccines: [
-                { name: "DPT-HB-Hib 1", desc: "Mencegah Difteri, Batuk Rejan (Pertusis), Tetanus, Hepatitis B, dan infeksi Hib." },
-                { name: "Polio 2 (Tetes)", desc: "Dosis kedua Polio Tetes." },
-                { name: "PCV 1", desc: "Mencegah radang paru (Pneumonia) dan radang selaput otak (Meningitis)." },
-                { name: "Rotavirus (RV) 1", desc: "Mencegah diare berat akibat virus Rotavirus." }
+                { name: "DPT-HB-Hib1", desc: "Mencegah Difteri, Batuk Rejan, Tetanus, Hepatitis B, dan Hib." },
+                { name: "OPV2", desc: "Vaksin Polio Tetes dosis kedua." },
+                { name: "PCV1", desc: "Mencegah radang paru dan selaput otak (Pneumokokus) dosis pertama." },
+                { name: "RV1", desc: "Mencegah diare berat (Rotavirus) dosis pertama." }
             ]
         },
         {
             ageId: "usia-3-bulan",
             ageLabel: "3 Bulan",
             vaccines: [
-                { name: "DPT-HB-Hib 2", desc: "Dosis kedua DPT-HB-Hib." },
-                { name: "Polio 3 (Tetes)", desc: "Dosis ketiga Polio Tetes." },
-                { name: "PCV 2", desc: "Dosis kedua PCV." },
-                { name: "Rotavirus (RV) 2", desc: "Dosis kedua Rotavirus." }
+                { name: "DPT-HB-Hib2", desc: "Dosis kedua DPT-HB-Hib." },
+                { name: "OPV3", desc: "Vaksin Polio Tetes dosis ketiga." },
+                { name: "PCV2", desc: "Dosis kedua PCV." },
+                { name: "RV2", desc: "Dosis kedua Rotavirus." }
             ]
         },
         {
             ageId: "usia-4-bulan",
             ageLabel: "4 Bulan",
             vaccines: [
-                { name: "DPT-HB-Hib 3", desc: "Dosis ketiga DPT-HB-Hib." },
-                { name: "Polio 4 (Tetes)", desc: "Dosis keempat Polio Tetes." },
-                { name: "IPV 1 (Suntik)", desc: "Vaksin Polio Suntik untuk perlindungan lebih kuat." },
-                { name: "Rotavirus (RV) 3", desc: "Dosis ketiga Rotavirus." }
+                { name: "DPT-HB-Hib3", desc: "Dosis ketiga DPT-HB-Hib." },
+                { name: "OPV4", desc: "Vaksin Polio Tetes dosis keempat." },
+                { name: "IPV1", desc: "Vaksin Polio Suntik dosis pertama." },
+                { name: "RV3", desc: "Dosis ketiga Rotavirus." }
             ]
         },
         {
             ageId: "usia-9-bulan",
             ageLabel: "9 Bulan",
             vaccines: [
-                { name: "Campak Rubella (MR)", desc: "Mencegah penyakit Campak dan Rubella (campak jerman)." },
-                { name: "IPV 2 (Suntik)", desc: "Dosis kedua Polio Suntik." }
+                { name: "Campak-Rubela", desc: "Mencegah penyakit Campak dan Rubela." },
+                { name: "IPV2", desc: "Vaksin Polio Suntik dosis kedua." }
             ]
         },
         {
-            ageId: "usia-12-18-bulan",
-            ageLabel: "12-18 Bulan",
+            ageId: "usia-10-bulan",
+            ageLabel: "10 Bulan",
             vaccines: [
-                { name: "PCV 3", desc: "Dosis ketiga PCV (diberikan pada usia 12 bulan)." },
-                { name: "DPT-HB-Hib Lanjutan", desc: "Dosis penguat/booster (diberikan pada usia 18 bulan)." },
-                { name: "Campak Rubella (MR) Lanjutan", desc: "Dosis penguat/booster (diberikan pada usia 18 bulan)." }
+                { name: "JE*", desc: "Vaksin Japanese Encephalitis (khusus area tertentu)." }
+            ]
+        },
+        {
+            ageId: "usia-12-bulan",
+            ageLabel: "12 Bulan",
+            vaccines: [
+                { name: "PCV3", desc: "Dosis ketiga PCV (booster/lanjutan)." }
+            ]
+        },
+        {
+            ageId: "usia-18-bulan",
+            ageLabel: "18 Bulan",
+            vaccines: [
+                { name: "Campak-Rubela", desc: "Dosis lanjutan untuk Campak-Rubela." },
+                { name: "DPT-HB-Hib4", desc: "Dosis keempat/lanjutan DPT-HB-Hib." }
+            ]
+        },
+        {
+            ageId: "kelas-1",
+            ageLabel: "Kelas 1",
+            vaccines: [
+                { name: "Campak-Rubela", desc: "Imunisasi anak sekolah (BIAS)." },
+                { name: "DT", desc: "Vaksin Difteri dan Tetanus anak sekolah." }
+            ]
+        },
+        {
+            ageId: "kelas-2",
+            ageLabel: "Kelas 2",
+            vaccines: [
+                { name: "Td", desc: "Vaksin Tetanus dan Difteri (booster anak lebih besar)." }
+            ]
+        },
+        {
+            ageId: "kelas-5",
+            ageLabel: "Kelas 5",
+            vaccines: [
+                { name: "Td", desc: "Vaksin Tetanus dan Difteri lanjutan." },
+                { name: "HPV**", desc: "Vaksin Human Papillomavirus dosis pertama (khusus anak perempuan)." }
+            ]
+        },
+        {
+            ageId: "kelas-6",
+            ageLabel: "Kelas 6",
+            vaccines: [
+                { name: "HPV**", desc: "Vaksin HPV dosis kedua (khusus anak perempuan)." }
             ]
         }
     ];

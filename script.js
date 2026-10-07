@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ageId: "kelas-6",
             ageLabel: "Kelas 6",
             vaccines: [
-                { name: "HPV**", desc: "Vaksin HPV dosis kedua (khusus anak perempuan)." }
+                { name: "HPV**", desc: "Vaksin HPV dosis kedua (khusus anak perempuan). Bagi yang belum mendapatkan dosis pertama di kelas 5, dapat diberikan di kelas 6." }
             ]
         }
     ];

@@ -337,6 +337,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // 9. Calendar Generation Logic
+    const btnGenerateCalendar = document.getElementById('btnGenerateCalendar');
+    const imunisasiDateInput = document.getElementById('imunisasiDate');
+
+    if (btnGenerateCalendar && imunisasiDateInput) {
+        btnGenerateCalendar.addEventListener('click', () => {
+            const selectedDate = imunisasiDateInput.value;
+            
+            if (!selectedDate) {
+                alert('Mohon pilih tanggal dan jam imunisasi terlebih dahulu!');
+                return;
+            }
+
+            const dateObj = new Date(selectedDate);
+            
+            // Format YYYYMMDDTHHmmss (local time)
+            const formatForGoogle = (d) => {
+                return d.getFullYear() + 
+                       String(d.getMonth() + 1).padStart(2, '0') + 
+                       String(d.getDate()).padStart(2, '0') + 
+                       'T' + 
+                       String(d.getHours()).padStart(2, '0') + 
+                       String(d.getMinutes()).padStart(2, '0') + 
+                       '00';
+            };
+
+            // Start time is exactly what the user picked
+            const startStr = formatForGoogle(dateObj);
+            
+            // Set waktu selesai ke 1 jam setelah jam yang dipilih
+            dateObj.setHours(dateObj.getHours() + 1);
+            const endStr = formatForGoogle(dateObj);
+
+            const text = encodeURIComponent('Jadwal Imunisasi Anak Puskesmas Bulusan');
+            const details = encodeURIComponent('Waktunya imunisasi anak. Jangan lupa bawa buku KIA!');
+            const location = encodeURIComponent('Puskesmas Bulusan Semarang');
+            
+            const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${startStr}/${endStr}&details=${details}&location=${location}`;
+            
+            window.open(calendarUrl, '_blank');
+        });
+    }
+
     // 10. Initialize Scroll Reveal (Moved to end to capture dynamic elements)
     const revealElements = document.querySelectorAll('.reveal');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

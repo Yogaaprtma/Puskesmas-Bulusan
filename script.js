@@ -443,20 +443,32 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const loadCount = () => {
-            fetch(`${baseUrl}/counter/TOTAL.json`, { cache: 'no-store' })
+            // Halaman utama dicatat di path '/' (%2F) yang terupdate realtime
+            fetch(`${baseUrl}/counter/%2F.json`, { cache: 'no-store' })
                 .then(res => {
-                    if (!res.ok) throw new Error('Counter belum diaktifkan');
+                    if (!res.ok) throw new Error('Counter path gagal');
                     return res.json();
                 })
                 .then(data => {
-                    // Angka dari GoatCounter berformat "1 234" (spasi tipis) -> ambil digitnya saja
-                    const raw = String(data.count_unique ?? data.count ?? '').replace(/\D/g, '');
+                    const raw = String(data.count ?? data.count_unique ?? '').replace(/\D/g, '');
                     if (raw === '') throw new Error('Data counter kosong');
                     counterBox.hidden = false;
                     animateCount(parseInt(raw, 10));
                 })
                 .catch(() => {
-                    counterBox.hidden = true; // gagal -> sembunyikan, jangan tampilkan angka palsu
+                    // Fallback ke TOTAL.json jika path tidak ditemukan
+                    fetch(`${baseUrl}/counter/TOTAL.json`, { cache: 'no-store' })
+                        .then(res => res.json())
+                        .then(data => {
+                            const raw = String(data.count ?? data.count_unique ?? '').replace(/\D/g, '');
+                            if (raw !== '') {
+                                counterBox.hidden = false;
+                                animateCount(parseInt(raw, 10));
+                            }
+                        })
+                        .catch(() => {
+                            counterBox.hidden = true;
+                        });
                 });
         };
 

@@ -344,28 +344,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnGenerateCalendar && imunisasiDateInput) {
         btnGenerateCalendar.addEventListener('click', () => {
             const selectedDate = imunisasiDateInput.value;
-            
+
             if (!selectedDate) {
                 alert('Mohon pilih tanggal dan jam imunisasi terlebih dahulu!');
                 return;
             }
 
             const dateObj = new Date(selectedDate);
-            
+
             // Format YYYYMMDDTHHmmss (local time)
             const formatForGoogle = (d) => {
-                return d.getFullYear() + 
-                       String(d.getMonth() + 1).padStart(2, '0') + 
-                       String(d.getDate()).padStart(2, '0') + 
-                       'T' + 
-                       String(d.getHours()).padStart(2, '0') + 
-                       String(d.getMinutes()).padStart(2, '0') + 
-                       '00';
+                return d.getFullYear() +
+                    String(d.getMonth() + 1).padStart(2, '0') +
+                    String(d.getDate()).padStart(2, '0') +
+                    'T' +
+                    String(d.getHours()).padStart(2, '0') +
+                    String(d.getMinutes()).padStart(2, '0') +
+                    '00';
             };
 
             // Start time is exactly what the user picked
             const startStr = formatForGoogle(dateObj);
-            
+
             // Set waktu selesai ke 1 jam setelah jam yang dipilih
             dateObj.setHours(dateObj.getHours() + 1);
             const endStr = formatForGoogle(dateObj);
@@ -373,9 +373,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const text = encodeURIComponent('Jadwal Imunisasi Anak Puskesmas Bulusan');
             const details = encodeURIComponent('Waktunya imunisasi anak. Jangan lupa bawa buku KIA!');
             const location = encodeURIComponent('Puskesmas Bulusan Semarang');
-            
+
             const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${startStr}/${endStr}&details=${details}&location=${location}`;
-            
+
             window.open(calendarUrl, '_blank');
         });
     }
@@ -405,5 +405,62 @@ document.addEventListener('DOMContentLoaded', () => {
         revealElements.forEach(el => {
             el.classList.add('active');
         });
+    }
+
+    // 10. Visitor Counter (GoatCounter)
+    // Isi dengan kode situs GoatCounter, contoh: 'si-imun' -> https://si-imun.goatcounter.com
+    // Kosongkan ('') untuk menonaktifkan counter.
+    const GOATCOUNTER_CODE = 'puskesmas-bulusan-smg';
+
+    const counterBox = document.getElementById('visitorCounter');
+    const counterNumber = document.getElementById('visitorCount');
+
+    if (GOATCOUNTER_CODE && counterBox && counterNumber) {
+        const baseUrl = `https://${GOATCOUNTER_CODE}.goatcounter.com`;
+
+        // a) Catat kunjungan ini
+        const tracker = document.createElement('script');
+        tracker.async = true;
+        tracker.src = 'https://gc.zgo.at/count.js';
+        tracker.dataset.goatcounter = `${baseUrl}/count`;
+        document.head.appendChild(tracker);
+
+        // b) Ambil total pengunjung & tampilkan
+        const animateCount = (target) => {
+            if (prefersReducedMotion || target < 2) {
+                counterNumber.textContent = target.toLocaleString('id-ID');
+                return;
+            }
+            const duration = 1200;
+            const start = performance.now();
+            const tick = (now) => {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                counterNumber.textContent = Math.round(target * eased).toLocaleString('id-ID');
+                if (progress < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+        };
+
+        const loadCount = () => {
+            fetch(`${baseUrl}/counter/TOTAL.json`, { cache: 'no-store' })
+                .then(res => {
+                    if (!res.ok) throw new Error('Counter belum diaktifkan');
+                    return res.json();
+                })
+                .then(data => {
+                    // Angka dari GoatCounter berformat "1 234" (spasi tipis) -> ambil digitnya saja
+                    const raw = String(data.count_unique ?? data.count ?? '').replace(/\D/g, '');
+                    if (raw === '') throw new Error('Data counter kosong');
+                    counterBox.hidden = false;
+                    animateCount(parseInt(raw, 10));
+                })
+                .catch(() => {
+                    counterBox.hidden = true; // gagal -> sembunyikan, jangan tampilkan angka palsu
+                });
+        };
+
+        // Beri jeda singkat agar kunjungan ini ikut tercatat sebelum angka dibaca
+        setTimeout(loadCount, 1500);
     }
 });

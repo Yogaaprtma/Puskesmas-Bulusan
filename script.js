@@ -475,4 +475,62 @@ document.addEventListener('DOMContentLoaded', () => {
         // Beri jeda singkat agar kunjungan ini ikut tercatat sebelum angka dibaca
         setTimeout(loadCount, 1500);
     }
+
+    // 11. Live Status Jam Layanan Puskesmas Bulusan
+    const initServiceHoursStatus = () => {
+        const statusPill = document.getElementById('serviceStatusPill');
+        const todayRows = document.querySelectorAll('.hours-table tr[data-day]');
+        if (!statusPill) return;
+
+        // Hitung waktu dalam zona WIB (UTC+7)
+        const now = new Date();
+        const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+        const wib = new Date(utc + (3600000 * 7));
+
+        const day = wib.getDay(); // 0: Minggu, 1: Senin, ..., 6: Sabtu
+        const hours = wib.getHours();
+        const minutes = wib.getMinutes();
+        const currentTimeVal = hours * 60 + minutes;
+
+        // Highlight baris hari ini pada tabel jam operasional
+        todayRows.forEach(row => {
+            if (parseInt(row.getAttribute('data-day'), 10) === day) {
+                row.classList.add('today-highlight');
+            }
+        });
+
+        let isOpen = false;
+        let closingTime = '';
+
+        if (day >= 1 && day <= 4) {
+            // Senin - Kamis: 07.00 - 16.30 (420 - 990 menit)
+            if (currentTimeVal >= 420 && currentTimeVal < 990) {
+                isOpen = true;
+                closingTime = '16.30 WIB';
+            }
+        } else if (day === 5) {
+            // Jumat: 07.00 - 14.30 (420 - 870 menit)
+            if (currentTimeVal >= 420 && currentTimeVal < 870) {
+                isOpen = true;
+                closingTime = '14.30 WIB';
+            }
+        } else if (day === 6) {
+            // Sabtu: 07.00 - 11.30 (420 - 690 menit)
+            if (currentTimeVal >= 420 && currentTimeVal < 690) {
+                isOpen = true;
+                closingTime = '11.30 WIB';
+            }
+        }
+
+        if (isOpen) {
+            statusPill.className = 'live-status-pill status-open';
+            statusPill.innerHTML = `<span class="live-status-dot"></span> Buka Sekarang • Tutup ${closingTime}`;
+        } else {
+            statusPill.className = 'live-status-pill status-closed';
+            const nextOpen = (day === 6 && currentTimeVal >= 690) || day === 0 ? 'Senin 07.00 WIB' : 'Besok 07.00 WIB';
+            statusPill.innerHTML = `<span class="live-status-dot"></span> Sedang Tutup • Buka ${nextOpen}`;
+        }
+    };
+
+    initServiceHoursStatus();
 });

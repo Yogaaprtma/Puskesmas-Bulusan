@@ -1378,6 +1378,395 @@ svg {
     }
 }
 
+/* ==========================================================================
+   JAM LAYANAN & KONTAK PUSKESMAS BULUSAN
+   ========================================================================== */
+.contact-service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 2.5rem;
+    align-items: stretch;
+}
+
+.contact-cards-col,
+.service-hours-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.col-header-box {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1.5rem;
+}
+
+.col-header-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: var(--primary-light);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(22, 138, 173, 0.15);
+}
+
+.col-header-icon.icon-teal {
+    background: #E6F7F5;
+    color: #107C74;
+    box-shadow: 0 2px 8px rgba(16, 124, 116, 0.15);
+}
+
+.col-header-box h3 {
+    margin: 0 0 0.15rem 0;
+    font-size: 1.35rem;
+    color: var(--text-dark);
+}
+
+.col-header-box p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.info-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.info-item-card {
+    background: var(--white);
+    border: 1px solid rgba(24, 59, 86, 0.08);
+    border-radius: 16px;
+    padding: 0.95rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 2px 8px rgba(24, 59, 86, 0.03);
+    transition: var(--transition-smooth);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.info-item-card.clickable-card {
+    cursor: pointer;
+}
+
+.info-item-card.clickable-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--secondary);
+    background: #FAFCFD;
+}
+
+.info-item-card.clickable-card:hover .card-arrow-icon {
+    transform: translateX(4px);
+    color: var(--secondary-dark);
+}
+
+.item-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: var(--transition-smooth);
+}
+
+.item-icon-box.icon-red {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.item-icon-box.icon-rose {
+    background: #FFE4E6;
+    color: #E11D48;
+}
+
+.item-icon-box.icon-purple {
+    background: #EDE9FE;
+    color: #7C3AED;
+}
+
+.item-icon-box.icon-green {
+    background: #DCFCE7;
+    color: #16A34A;
+}
+
+.item-icon-box.icon-pink {
+    background: #FCE7F3;
+    color: #DB2777;
+}
+
+.item-icon-box.icon-blue {
+    background: #E0F2FE;
+    color: #0284C7;
+}
+
+.item-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.item-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin-bottom: 0.15rem;
+}
+
+.item-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.card-arrow-icon {
+    color: #94A3B8;
+    transition: var(--transition-smooth);
+    flex-shrink: 0;
+}
+
+.btn-map-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.15rem;
+    background: #107C74;
+    color: #FFFFFF !important;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(16, 124, 116, 0.25);
+    white-space: nowrap;
+}
+
+.btn-map-action:hover {
+    background: #0D635D;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 124, 116, 0.35);
+}
+
+/* Service Hours Card */
+.service-hours-card {
+    background: var(--white);
+    border: 1px solid rgba(24, 59, 86, 0.08);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(24, 59, 86, 0.04);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-hours-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #F1F5F9;
+    padding-bottom: 1.25rem;
+}
+
+.live-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.live-status-pill.status-open {
+    background: #DCFCE7;
+    color: #15803D;
+    border: 1px solid rgba(22, 163, 74, 0.3);
+}
+
+.live-status-pill.status-closed {
+    background: #FEE2E2;
+    color: #B91C1C;
+    border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.live-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    display: inline-block;
+    animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.35); opacity: 0.65; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.hours-table-wrap {
+    overflow-x: auto;
+    margin-bottom: 1.75rem;
+}
+
+.hours-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.hours-table th {
+    background: #F8FAFC;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 2px solid #E2E8F0;
+}
+
+.hours-table th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.hours-table th:last-child {
+    border-top-right-radius: 10px;
+    text-align: right;
+}
+
+.hours-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    transition: var(--transition-smooth);
+}
+
+.hours-table td:last-child {
+    text-align: right;
+    font-weight: 600;
+}
+
+.hours-table tr:hover td {
+    background: #FAFCFE;
+}
+
+.hours-table tr.today-highlight td {
+    background: #F0FDF4;
+    font-weight: 700;
+    color: #15803D;
+}
+
+.hours-table tr.today-highlight td:first-child::before {
+    content: '👉 ';
+    margin-right: 4px;
+}
+
+.hours-table tr.row-closed td:last-child {
+    color: #DC2626;
+}
+
+.badge-closed-tag {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 6px;
+    background: #FEE2E2;
+    color: #DC2626;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.hours-actions-bar {
+    margin-top: auto;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    border-top: 1px solid #F1F5F9;
+}
+
+.btn-hour-action {
+    flex: 1;
+    min-width: 130px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.btn-hour-action.btn-lokasi {
+    background: #107C74;
+    color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(16, 124, 116, 0.25);
+}
+
+.btn-hour-action.btn-lokasi:hover {
+    background: #0D635D;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(16, 124, 116, 0.35);
+}
+
+.btn-hour-action.btn-ig {
+    background: #FFFFFF;
+    color: #DB2777;
+    border: 1.5px solid #FBCFE8;
+}
+
+.btn-hour-action.btn-ig:hover {
+    background: #FDF2F8;
+    border-color: #DB2777;
+    transform: translateY(-2px);
+}
+
+.btn-hour-action.btn-wa {
+    background: #FFFFFF;
+    color: #16A34A;
+    border: 1.5px solid #BBF7D0;
+}
+
+.btn-hour-action.btn-wa:hover {
+    background: #F0FDF4;
+    border-color: #16A34A;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 992px) {
+    .contact-service-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
 
 /* Scroll Reveal Classes */
 .reveal {

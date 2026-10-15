@@ -533,4 +533,137 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     initServiceHoursStatus();
+
+    // =========================================================================
+    // VIDEO SHOWCASE CONTROLLER (SI IMUN PUSKESMAS BULUSAN)
+    // =========================================================================
+    const initVideoShowcase = () => {
+        const video = document.getElementById('imunisasiVideo');
+        if (!video) return;
+
+        const centerPlayBtn = document.getElementById('videoCenterPlayBtn');
+        const triggerPlayBtn = document.getElementById('btnTriggerPlayVideo');
+        const vPlayPauseBtn = document.getElementById('vPlayPauseBtn');
+        const vMuteBtn = document.getElementById('vMuteBtn');
+        const vFullscreenBtn = document.getElementById('vFullscreenBtn');
+        const track = document.getElementById('videoProgressTrack');
+        const fill = document.getElementById('videoProgressFill');
+        const timeDisplay = document.getElementById('vTimeDisplay');
+
+        const formatTime = (seconds) => {
+            if (isNaN(seconds) || seconds < 0) return '00:00';
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        };
+
+        const updatePlayUI = (isPlaying) => {
+            if (centerPlayBtn) {
+                if (isPlaying) {
+                    centerPlayBtn.classList.add('playing');
+                } else {
+                    centerPlayBtn.classList.remove('playing');
+                }
+            }
+
+            if (vPlayPauseBtn) {
+                const icPlay = vPlayPauseBtn.querySelector('.v-ic-play');
+                const icPause = vPlayPauseBtn.querySelector('.v-ic-pause');
+                if (icPlay && icPause) {
+                    icPlay.style.display = isPlaying ? 'none' : 'block';
+                    icPause.style.display = isPlaying ? 'block' : 'none';
+                }
+            }
+
+            if (triggerPlayBtn) {
+                const label = triggerPlayBtn.querySelector('span');
+                if (label) {
+                    label.textContent = isPlaying ? 'Jeda Video' : 'Putar Video';
+                }
+            }
+        };
+
+        const togglePlay = () => {
+            if (video.paused || video.ended) {
+                video.play().catch(() => {});
+            } else {
+                video.pause();
+            }
+        };
+
+        if (centerPlayBtn) centerPlayBtn.addEventListener('click', togglePlay);
+        if (triggerPlayBtn) triggerPlayBtn.addEventListener('click', () => {
+            if (video.paused || video.ended) {
+                video.play().catch(() => {});
+            } else {
+                video.pause();
+            }
+        });
+        if (vPlayPauseBtn) vPlayPauseBtn.addEventListener('click', togglePlay);
+        video.addEventListener('click', togglePlay);
+
+        video.addEventListener('play', () => updatePlayUI(true));
+        video.addEventListener('pause', () => updatePlayUI(false));
+        video.addEventListener('ended', () => {
+            updatePlayUI(false);
+            if (fill) fill.style.width = '0%';
+        });
+
+        // Time and Progress Updates
+        video.addEventListener('timeupdate', () => {
+            if (video.duration && fill) {
+                const pct = (video.currentTime / video.duration) * 100;
+                fill.style.width = `${pct}%`;
+            }
+            if (timeDisplay) {
+                const current = formatTime(video.currentTime);
+                const total = formatTime(video.duration || 36);
+                timeDisplay.textContent = `${current} / ${total}`;
+            }
+        });
+
+        // Scrubbing on Progress Track
+        if (track) {
+            track.addEventListener('click', (e) => {
+                const rect = track.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                if (video.duration) {
+                    video.currentTime = Math.max(0, Math.min(pos * video.duration, video.duration));
+                }
+            });
+        }
+
+        // Mute / Unmute
+        if (vMuteBtn) {
+            vMuteBtn.addEventListener('click', () => {
+                video.muted = !video.muted;
+                const icSound = vMuteBtn.querySelector('.v-ic-sound');
+                const icMute = vMuteBtn.querySelector('.v-ic-mute');
+                if (icSound && icMute) {
+                    icSound.style.display = video.muted ? 'none' : 'block';
+                    icMute.style.display = video.muted ? 'block' : 'none';
+                }
+            });
+        }
+
+        // Fullscreen Toggle
+        if (vFullscreenBtn) {
+            vFullscreenBtn.addEventListener('click', () => {
+                const frame = video.closest('.phone-mockup-frame') || video;
+                if (!document.fullscreenElement) {
+                    if (frame.requestFullscreen) {
+                        frame.requestFullscreen();
+                    } else if (video.webkitEnterFullscreen) {
+                        video.webkitEnterFullscreen();
+                    }
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    }
+                }
+            });
+        }
+    };
+
+    initVideoShowcase();
 });

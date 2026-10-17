@@ -443,10 +443,11 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const loadCount = () => {
-            // Halaman utama dicatat di path '/' (%2F) yang terupdate realtime
-            fetch(`${baseUrl}/counter/%2F.json`, { cache: 'no-store' })
+            // Gunakan TOTAL.json dengan cache-buster agar realtime sinkron dengan dashboard GoatCounter
+            const timestamp = Date.now();
+            fetch(`${baseUrl}/counter/TOTAL.json?_t=${timestamp}`, { cache: 'no-store' })
                 .then(res => {
-                    if (!res.ok) throw new Error('Counter path gagal');
+                    if (!res.ok) throw new Error('TOTAL counter gagal');
                     return res.json();
                 })
                 .then(data => {
@@ -456,8 +457,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     animateCount(parseInt(raw, 10));
                 })
                 .catch(() => {
-                    // Fallback ke TOTAL.json jika path tidak ditemukan
-                    fetch(`${baseUrl}/counter/TOTAL.json`, { cache: 'no-store' })
+                    // Fallback ke %2F.json jika diperlukan
+                    fetch(`${baseUrl}/counter/%2F.json?_t=${timestamp}`, { cache: 'no-store' })
                         .then(res => res.json())
                         .then(data => {
                             const raw = String(data.count ?? data.count_unique ?? '').replace(/\D/g, '');
